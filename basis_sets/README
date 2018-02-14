@@ -1,0 +1,6 @@
+Which auxiliary basis sets to use
+
+sto-3g       def2-svp-jkfit
+cc-pVDZ      cc-pvdz-jkfit
+aug-cc-pvDZ  aug-cc-pvdz-jkfit
+6-31g        cc-pvdz-jkfit
