@@ -1,8 +1,12 @@
 USING SIMINT-MATLAB
 
-Compile Simint into a dynamic library.  Set library path and run Matlab:
+1. Compile Simint into a dynamic library.  (See below for details.)
+   (A dynamic library is needed because it is initialized and alive 
+   during your Matlab session.)
 
-LD_LIBRARY_PATH=/home/edmond/now/simint-matlab/standalone/simint matlab -nojvm
+2. Set library path, for example:
+
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:install/lib64
 
 
 FUNCTION DOCUMENTATION
@@ -43,3 +47,27 @@ alkane.py  - from Psi4
 apiary:~/research/psi/hartree-fock$ vi scf.m
 apiary:~/research/eri-matlab$ ls generate_eri.m 
 
+
+=================================================
+Compiling and linking to Simint
+starting from the simint-generator
+
+blink:~/simint-generator
+
+% make Simint sources using the generator
+    mkdir build
+    cd build
+    CC=icc CXX=icpc cmake ../
+    make
+    cd ..
+    ./create.py -g build/generator/ostei -l 3 -p 3 outdir
+
+% build the Simint library (avx version in this example)
+    cd outdir/
+    mkdir build-avx-dynamic-standalone
+    cd build-avx-dynamic-standalone
+    CC=icc CXX=icpc cmake -DSIMINT_VECTOR=avx -DBUILD_SHARED_LIBS=True -DSIMINT_STANDALONE=True -DCMAKE_INSTALL_PREFIX=/home/echow/simint-generator/outdir/build-avx-dynamic-standalone/install ..
+    make -j20
+    make install
+
+% link your mex files to the dynamic lib in the above install directory
