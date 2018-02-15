@@ -1,0 +1,8 @@
+pyscf scripts for comparison testing against simint and simint-matlab
+
+Where pyscf is already installed locally:
+    apiary:~/pyscf using python3
+    robin:~/pyscf  using python3
+    ramen:~/pyscf  using python version 2
+
+export PYTHONPATH=$PYTHONPATH:/home/edmond/pyscf

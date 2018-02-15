@@ -6,7 +6,7 @@ USING SIMINT-MATLAB
 
 2. Set library path, for example:
 
-   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:install/lib64
+   export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/edmond/now/simint-matlab/simint-matlab/install/lib64
 
 
 FUNCTION DOCUMENTATION
