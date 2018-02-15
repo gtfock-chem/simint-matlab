@@ -16,7 +16,7 @@ endif
 
 # set sources explicitly if not all your .c files are mex programs
 #SOURCES = $(wildcard *.c)
-SOURCES = readmol.c calculate_eri.c calculate_kei.c
+SOURCES = readmol.c calculate_eri.c calculate_kei.c calculate_ovlpi.c calculate_nai.c
 TARGETS = $(SOURCES:.c=.$(MEXSUFFIX))
 
 all: $(TARGETS)
