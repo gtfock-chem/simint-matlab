@@ -29,11 +29,15 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
     if (nlhs > 1)
         mexErrMsgTxt("Too many output arguments.");
 
-    int     ncenter     = mxGetN (prhs[0]);
+    int     ncenter     = mxGetM (prhs[0]);
     double *atomic_nums = mxGetPr(prhs[0]);
     double *xcoords     = mxGetPr(prhs[1]);
     double *ycoords     = mxGetPr(prhs[2]);
     double *zcoords     = mxGetPr(prhs[3]);
+
+    int     temp        = mxGetN (prhs[0]);
+    if (temp > ncenter)
+        mexErrMsgTxt("Atomic positions must be tall vectors.");
 
     simint_init();
 
