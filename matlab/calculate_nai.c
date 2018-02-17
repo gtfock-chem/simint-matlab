@@ -86,15 +86,6 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
         }
     }
 
-    // print normalized shells
-    printf("normalized shells\n");
-    for (i=0; i<2; i++)
-    {
-        for (j=0; j<shell[i].nprim; j++)
-            printf("%e %e\n", shell[i].alpha[j], shell[i].coef[j]);
-        printf("\n");
-    }
-
     // allocate output
     // compute number of scalar integrals to be computed
     int size = NCART(shell[0].am) * NCART(shell[1].am);
