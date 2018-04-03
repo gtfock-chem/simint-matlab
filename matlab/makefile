@@ -22,7 +22,7 @@ TARGETS = $(SOURCES:.c=.$(MEXSUFFIX))
 all: $(TARGETS)
 
 %.$(MEXSUFFIX): %.c
-	$(MEX) ../install/lib64/libsimint.so -O -largeArrayDims CFLAGS='$$CFLAGS -fopenmp -std=c99 -mavx -Wno-unused-result -I../install/include -fPIC' LDFLAGS='$$LDFLAGS -fopenmp' $<
+	$(MEX) /home/echow/simint-generator/outdir/build-avx-dynamic-standalone/install/lib64/libsimint.so -O -largeArrayDims CFLAGS='$$CFLAGS -fopenmp -std=c99 -mavx -Wno-unused-result -I/home/echow/simint-generator/outdir/build-avx-dynamic-standalone/install/include -fPIC' LDFLAGS='$$LDFLAGS -fopenmp' $<
 
 clean:
 	rm -f *.$(MEXSUFFIX)
