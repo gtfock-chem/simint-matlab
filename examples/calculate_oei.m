@@ -1,8 +1,8 @@
 shells = readmol('/home/edmond/now/simint-matlab/simint-v0.7/test/dat/water.sto-3g.mol');
 %shells = readmol('/home/echow/simint-generator/outdir/test/dat/water.sto-3g.mol');
 
-% convert input Angstroms to atomic units
-shells = convert_a2bohr(shells);
+% note: .mol file already has coordinates in units of Bohr
+% shells = convert_a2bohr(shells);
 
 % following needed to compute nuclear attraction potential
 num_atoms = max([shells.atom_ind]);
